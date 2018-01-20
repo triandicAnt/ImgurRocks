@@ -12,6 +12,8 @@
 		21830625201182CC007EF87C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 21830624201182CC007EF87C /* Assets.xcassets */; };
 		21830628201182CC007EF87C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 21830626201182CC007EF87C /* Main.storyboard */; };
 		219D69BB2013DB780046B9F4 /* Podfile in Resources */ = {isa = PBXBuildFile; fileRef = 219D69BA2013DB770046B9F4 /* Podfile */; };
+		219D69BE2013E4AB0046B9F4 /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 219D69BD2013E4AB0046B9F4 /* Utils.swift */; };
+		219D69C02013EF560046B9F4 /* APIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 219D69BF2013EF560046B9F4 /* APIManager.swift */; };
 		FEBE234889FD93DB86092765 /* Pods_ImgurRocks.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1066918756D44B1805457420 /* Pods_ImgurRocks.framework */; };
 /* End PBXBuildFile section */
 
@@ -24,7 +26,9 @@
 		21830627201182CC007EF87C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		21830629201182CC007EF87C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2183062A201182CC007EF87C /* ImgurRocks.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = ImgurRocks.entitlements; sourceTree = "<group>"; };
-		219D69BA2013DB770046B9F4 /* Podfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Podfile; sourceTree = "<group>"; };
+		219D69BA2013DB770046B9F4 /* Podfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Podfile; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		219D69BD2013E4AB0046B9F4 /* Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
+		219D69BF2013EF560046B9F4 /* APIManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIManager.swift; sourceTree = "<group>"; };
 		B9DE90470A72E21454EBCC23 /* Pods-ImgurRocks.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ImgurRocks.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ImgurRocks/Pods-ImgurRocks.debug.xcconfig"; sourceTree = "<group>"; };
 		ECCDE78A28226E5C63660F02 /* Pods-ImgurRocks.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ImgurRocks.release.xcconfig"; path = "Pods/Target Support Files/Pods-ImgurRocks/Pods-ImgurRocks.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -63,7 +67,9 @@
 		2183061F201182CC007EF87C /* ImgurRocks */ = {
 			isa = PBXGroup;
 			children = (
+				219D69BC2013E4850046B9F4 /* utils */,
 				21830620201182CC007EF87C /* AppDelegate.swift */,
+				219D69BF2013EF560046B9F4 /* APIManager.swift */,
 				21830622201182CC007EF87C /* ViewController.swift */,
 				21830624201182CC007EF87C /* Assets.xcassets */,
 				21830626201182CC007EF87C /* Main.storyboard */,
@@ -71,6 +77,14 @@
 				2183062A201182CC007EF87C /* ImgurRocks.entitlements */,
 			);
 			path = ImgurRocks;
+			sourceTree = "<group>";
+		};
+		219D69BC2013E4850046B9F4 /* utils */ = {
+			isa = PBXGroup;
+			children = (
+				219D69BD2013E4AB0046B9F4 /* Utils.swift */,
+			);
+			path = utils;
 			sourceTree = "<group>";
 		};
 		54F5BCD18AEAA3BE54B3A320 /* Frameworks */ = {
@@ -219,8 +233,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				219D69C02013EF560046B9F4 /* APIManager.swift in Sources */,
 				21830623201182CC007EF87C /* ViewController.swift in Sources */,
 				21830621201182CC007EF87C /* AppDelegate.swift in Sources */,
+				219D69BE2013E4AB0046B9F4 /* Utils.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

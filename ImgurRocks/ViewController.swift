@@ -19,6 +19,8 @@ class ViewController: NSViewController {
     
     func authenticateAPI() {
         print("Hello Imgur");
+        let apiManager = APIManager()
+        apiManager.testAlamofireAPI()
     }
 
     override var representedObject: Any? {
