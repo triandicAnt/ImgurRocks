@@ -12,8 +12,13 @@ class ViewController: NSViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        // Call the Imgur API and fetch data
+        authenticateAPI()
+        
+    }
+    
+    func authenticateAPI() {
+        print("Hello Imgur");
     }
 
     override var representedObject: Any? {

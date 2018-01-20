@@ -1,0 +1,6 @@
+framework module Pods_ImgurRocks {
+  umbrella header "Pods-ImgurRocks-umbrella.h"
+
+  export *
+  module * { export * }
+}

@@ -11,9 +11,12 @@
 		21830623201182CC007EF87C /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21830622201182CC007EF87C /* ViewController.swift */; };
 		21830625201182CC007EF87C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 21830624201182CC007EF87C /* Assets.xcassets */; };
 		21830628201182CC007EF87C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 21830626201182CC007EF87C /* Main.storyboard */; };
+		219D69BB2013DB780046B9F4 /* Podfile in Resources */ = {isa = PBXBuildFile; fileRef = 219D69BA2013DB770046B9F4 /* Podfile */; };
+		FEBE234889FD93DB86092765 /* Pods_ImgurRocks.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1066918756D44B1805457420 /* Pods_ImgurRocks.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		1066918756D44B1805457420 /* Pods_ImgurRocks.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ImgurRocks.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		2183061D201182CC007EF87C /* ImgurRocks.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ImgurRocks.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		21830620201182CC007EF87C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		21830622201182CC007EF87C /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -21,6 +24,9 @@
 		21830627201182CC007EF87C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		21830629201182CC007EF87C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2183062A201182CC007EF87C /* ImgurRocks.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = ImgurRocks.entitlements; sourceTree = "<group>"; };
+		219D69BA2013DB770046B9F4 /* Podfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Podfile; sourceTree = "<group>"; };
+		B9DE90470A72E21454EBCC23 /* Pods-ImgurRocks.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ImgurRocks.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ImgurRocks/Pods-ImgurRocks.debug.xcconfig"; sourceTree = "<group>"; };
+		ECCDE78A28226E5C63660F02 /* Pods-ImgurRocks.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ImgurRocks.release.xcconfig"; path = "Pods/Target Support Files/Pods-ImgurRocks/Pods-ImgurRocks.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -28,6 +34,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FEBE234889FD93DB86092765 /* Pods_ImgurRocks.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -37,8 +44,11 @@
 		21830614201182CC007EF87C = {
 			isa = PBXGroup;
 			children = (
+				219D69BA2013DB770046B9F4 /* Podfile */,
 				2183061F201182CC007EF87C /* ImgurRocks */,
 				2183061E201182CC007EF87C /* Products */,
+				F8F3145049259D57D39B7C08 /* Pods */,
+				54F5BCD18AEAA3BE54B3A320 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -63,6 +73,23 @@
 			path = ImgurRocks;
 			sourceTree = "<group>";
 		};
+		54F5BCD18AEAA3BE54B3A320 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				1066918756D44B1805457420 /* Pods_ImgurRocks.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		F8F3145049259D57D39B7C08 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				B9DE90470A72E21454EBCC23 /* Pods-ImgurRocks.debug.xcconfig */,
+				ECCDE78A28226E5C63660F02 /* Pods-ImgurRocks.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -70,9 +97,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 2183062D201182CC007EF87C /* Build configuration list for PBXNativeTarget "ImgurRocks" */;
 			buildPhases = (
+				CEFA2CC3047E4571F8E80118 /* [CP] Check Pods Manifest.lock */,
 				21830619201182CC007EF87C /* Sources */,
 				2183061A201182CC007EF87C /* Frameworks */,
 				2183061B201182CC007EF87C /* Resources */,
+				6107E945CC5DC9C64C5F5203 /* [CP] Embed Pods Frameworks */,
+				AF73D569922992A8B752CF9C /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -122,12 +152,67 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				219D69BB2013DB780046B9F4 /* Podfile in Resources */,
 				21830625201182CC007EF87C /* Assets.xcassets in Resources */,
 				21830628201182CC007EF87C /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		6107E945CC5DC9C64C5F5203 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-ImgurRocks/Pods-ImgurRocks-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-ImgurRocks/Pods-ImgurRocks-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		AF73D569922992A8B752CF9C /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-ImgurRocks/Pods-ImgurRocks-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		CEFA2CC3047E4571F8E80118 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-ImgurRocks-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		21830619201182CC007EF87C /* Sources */ = {
@@ -261,6 +346,7 @@
 		};
 		2183062E201182CC007EF87C /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = B9DE90470A72E21454EBCC23 /* Pods-ImgurRocks.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = ImgurRocks/ImgurRocks.entitlements;
@@ -276,6 +362,7 @@
 		};
 		2183062F201182CC007EF87C /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = ECCDE78A28226E5C63660F02 /* Pods-ImgurRocks.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = ImgurRocks/ImgurRocks.entitlements;
