@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="13771" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" customObjectInstantitationMethod="direct">
+    <dependencies>
+        <deployment identifier="macosx"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="13771"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <customObject id="-2" userLabel="File's Owner" customClass="CollectionViewItem" customModule="ImgurRocks" customModuleProvider="target">
+            <connections>
+                <outlet property="imageView" destination="bf9-cB-xlw" id="gVG-gF-XJS"/>
+                <outlet property="view" destination="Hz6-mo-xeY" id="0bl-1N-x8E"/>
+            </connections>
+        </customObject>
+        <collectionViewItem id="BO2-in-3JR" customClass="CollectionViewItem" customModule="ImgurRocks" customModuleProvider="target">
+            <connections>
+                <outlet property="imageView" destination="bf9-cB-xlw" id="jFH-kl-oxM"/>
+                <outlet property="textField" destination="DCR-qA-GfT" id="m8t-5I-VQg"/>
+                <outlet property="view" destination="Hz6-mo-xeY" id="8Qb-Hf-la1"/>
+            </connections>
+        </collectionViewItem>
+        <customObject id="-1" userLabel="First Responder" customClass="FirstResponder"/>
+        <customObject id="-3" userLabel="Application" customClass="NSObject"/>
+        <customView id="Hz6-mo-xeY">
+            <rect key="frame" x="0.0" y="0.0" width="480" height="272"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+            <subviews>
+                <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="bf9-cB-xlw">
+                    <rect key="frame" x="0.0" y="0.0" width="480" height="272"/>
+                    <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" id="mb2-7k-gmB"/>
+                </imageView>
+                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="DCR-qA-GfT">
+                    <rect key="frame" x="-2" y="114" width="484" height="30"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="30" id="6Xs-Kr-DAz"/>
+                    </constraints>
+                    <textFieldCell key="cell" lineBreakMode="truncatingTail" sendsActionOnEndEditing="YES" alignment="center" title="Label" id="zTE-7r-jyi">
+                        <font key="font" metaFont="systemBold" size="17"/>
+                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                    </textFieldCell>
+                </textField>
+            </subviews>
+            <constraints>
+                <constraint firstAttribute="bottom" secondItem="bf9-cB-xlw" secondAttribute="bottom" id="5BU-h6-CK5"/>
+                <constraint firstItem="bf9-cB-xlw" firstAttribute="leading" secondItem="Hz6-mo-xeY" secondAttribute="leading" id="86w-lU-h4X"/>
+                <constraint firstItem="DCR-qA-GfT" firstAttribute="leading" secondItem="bf9-cB-xlw" secondAttribute="leading" id="Rop-it-eTU"/>
+                <constraint firstAttribute="trailing" secondItem="bf9-cB-xlw" secondAttribute="trailing" id="gyg-GT-4VZ"/>
+                <constraint firstItem="DCR-qA-GfT" firstAttribute="centerY" secondItem="bf9-cB-xlw" secondAttribute="centerY" constant="7" id="hfl-Ph-NHW"/>
+                <constraint firstItem="DCR-qA-GfT" firstAttribute="trailing" secondItem="bf9-cB-xlw" secondAttribute="trailing" id="kJr-gz-68r"/>
+                <constraint firstItem="bf9-cB-xlw" firstAttribute="top" secondItem="Hz6-mo-xeY" secondAttribute="top" id="rfD-2I-yxY"/>
+            </constraints>
+        </customView>
+    </objects>
+</document>
