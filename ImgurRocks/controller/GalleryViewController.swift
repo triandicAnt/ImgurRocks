@@ -11,21 +11,26 @@ import Cocoa
 class GalleryViewController: NSViewController {
 
     @IBOutlet weak var collectionView: NSCollectionView!
+    @IBOutlet weak var tagsButton :NSButton!
     let apiManager = APIManager()
     var galleryPosts : [GalleryPost] = [GalleryPost]()
     
     override func viewDidLoad() {
         print("called......")
         super.viewDidLoad()
+        self.view.wantsLayer = true
+        self.view.layer?.backgroundColor = NSColor(hex: "309f98").cgColor
+        self.view.wantsLayer = true
+        self.tagsButton.layer?.backgroundColor = NSColor(hex: "944a7d").cgColor
         configureCollectionView()
         authenticateAPI()
     }
     fileprivate func configureCollectionView() {
         let flowLayout = NSCollectionViewFlowLayout()
-        flowLayout.itemSize = NSSize(width: 200.0, height: 200.0)
-        flowLayout.sectionInset = NSEdgeInsets(top: 30.0, left: 20.0, bottom: 30.0, right: 20.0)
-        flowLayout.minimumInteritemSpacing = 20.0
-        flowLayout.minimumLineSpacing = 20.0
+        flowLayout.itemSize = NSSize(width: 300.0, height: 300.0)
+        flowLayout.sectionInset = NSEdgeInsets(top: 10.0, left: 10.0, bottom: 10.0, right: 10.0)
+        flowLayout.minimumInteritemSpacing = 10.0
+        flowLayout.minimumLineSpacing = 10.0
         flowLayout.sectionHeadersPinToVisibleBounds = true
         collectionView.collectionViewLayout = flowLayout
         view.wantsLayer = true
@@ -33,8 +38,16 @@ class GalleryViewController: NSViewController {
         collectionView.layer?.backgroundColor = NSColor(hex: "414a4c").cgColor
     }
     
-    func authenticateAPI() {
-        apiManager.fetchGalleryAPIImages(tagName: Utils.GALLERY_TAG_URL) { responseObject, error in
+    @IBAction func loadTags(sender: NSButton) {
+        print("loading tags ...")
+        let animator = MyCustomSwiftAnimator()
+        let mainStoryboard: NSStoryboard = NSStoryboard(name: NSStoryboard.Name(rawValue: "Main"), bundle: nil)
+        let destinationViewController = mainStoryboard.instantiateController(withIdentifier: NSStoryboard.SceneIdentifier(rawValue: "tags")) as! NSViewController
+        self.presentViewController(destinationViewController, animator: animator)
+    }
+    func authenticateAPI(tagName :String = "funny") {
+        let tagUrl = Utils.GALLERY_TAG_URL + tagName + "/top/1"
+        apiManager.fetchGalleryAPIImages(tagName: tagUrl) { responseObject, error in
             self.processData(data: responseObject!) {posts,error in
                 self.collectionView.reloadData()
             }
@@ -119,8 +132,10 @@ extension GalleryViewController : NSCollectionViewDataSource {
         let item = collectionView.makeItem(withIdentifier: .collectionViewItem, for: indexPath)
         guard let collectionViewItem = item as? GalleryCollectionViewItem else {return item}
         let post:GalleryPost = self.galleryPosts[indexPath.item]
-        collectionViewItem.imageView?.image = post.homeImage
-        collectionViewItem.title = post.title
+//        collectionViewItem.imageView?.image = post.homeImage
+//        collectionViewItem.title = post.title
+        let imageFile = ImageFile(thumbnail: post.homeImage!, fileName: post.title!)
+        collectionViewItem.imageFile = imageFile
         return item
     }
 }

@@ -25,6 +25,7 @@
 		219D69E3201DAE140046B9F4 /* GalleryCollectionViewItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 219D69E1201DAE140046B9F4 /* GalleryCollectionViewItem.swift */; };
 		219D69E4201DAE140046B9F4 /* GalleryCollectionViewItem.xib in Resources */ = {isa = PBXBuildFile; fileRef = 219D69E2201DAE140046B9F4 /* GalleryCollectionViewItem.xib */; };
 		219D69E6201DB7FB0046B9F4 /* GalleryPost.swift in Sources */ = {isa = PBXBuildFile; fileRef = 219D69E5201DB7FB0046B9F4 /* GalleryPost.swift */; };
+		219D69EA201E63720046B9F4 /* MyCustomSwiftAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 219D69E9201E63720046B9F4 /* MyCustomSwiftAnimator.swift */; };
 		FEBE234889FD93DB86092765 /* Pods_ImgurRocks.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1066918756D44B1805457420 /* Pods_ImgurRocks.framework */; };
 /* End PBXBuildFile section */
 
@@ -51,6 +52,7 @@
 		219D69E1201DAE140046B9F4 /* GalleryCollectionViewItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GalleryCollectionViewItem.swift; sourceTree = "<group>"; };
 		219D69E2201DAE140046B9F4 /* GalleryCollectionViewItem.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GalleryCollectionViewItem.xib; sourceTree = "<group>"; };
 		219D69E5201DB7FB0046B9F4 /* GalleryPost.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GalleryPost.swift; sourceTree = "<group>"; };
+		219D69E9201E63720046B9F4 /* MyCustomSwiftAnimator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyCustomSwiftAnimator.swift; sourceTree = "<group>"; };
 		B9DE90470A72E21454EBCC23 /* Pods-ImgurRocks.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ImgurRocks.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ImgurRocks/Pods-ImgurRocks.debug.xcconfig"; sourceTree = "<group>"; };
 		ECCDE78A28226E5C63660F02 /* Pods-ImgurRocks.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ImgurRocks.release.xcconfig"; path = "Pods/Target Support Files/Pods-ImgurRocks/Pods-ImgurRocks.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -108,6 +110,7 @@
 				219D69BF2013EF560046B9F4 /* APIManager.swift */,
 				219D69BD2013E4AB0046B9F4 /* Utils.swift */,
 				219D69DF201DAC430046B9F4 /* MyTransitionAnimator.swift */,
+				219D69E9201E63720046B9F4 /* MyCustomSwiftAnimator.swift */,
 			);
 			path = utils;
 			sourceTree = "<group>";
@@ -303,6 +306,7 @@
 				219D69E3201DAE140046B9F4 /* GalleryCollectionViewItem.swift in Sources */,
 				219D69C02013EF560046B9F4 /* APIManager.swift in Sources */,
 				219D69C2201588A10046B9F4 /* HomeWindowController.swift in Sources */,
+				219D69EA201E63720046B9F4 /* MyCustomSwiftAnimator.swift in Sources */,
 				219D69DE201D8C690046B9F4 /* ContainerViewController.swift in Sources */,
 				219D69E6201DB7FB0046B9F4 /* GalleryPost.swift in Sources */,
 				21830623201182CC007EF87C /* ViewController.swift in Sources */,

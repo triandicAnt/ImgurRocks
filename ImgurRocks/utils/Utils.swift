@@ -16,7 +16,7 @@ class Utils {
     static let REFRESH_TOKEN:String = "1c87fc328d767e303dc0a75e4ee59f0f10832e8e"
     static let MY_URL:String = "https://api.imgur.com/3/account/triandicant"
     static let GALLERY_URL:String = "https://api.imgur.com/3/gallery/hot/viral/1"
-    static let GALLERY_TAG_URL:String = "https://api.imgur.com/3/gallery/t/funny/top/1"
+    static let GALLERY_TAG_URL:String = "https://api.imgur.com/3/gallery/t/"
     static let GALLERY_TAGS:String = "https://api.imgur.com/3/tags"
     static let IMAGE_URL:String = "https://api.imgur.com/3/image/"
 }

@@ -90,10 +90,8 @@ class ViewController: NSViewController {
         flowLayout.sectionHeadersPinToVisibleBounds = true
         collectionView.collectionViewLayout = flowLayout
         view.wantsLayer = true
-//        collectionView.layer?.backgroundColor = NSColor.black.cgColor
         collectionView.layer?.backgroundColor = NSColor(hex: "414a4c").cgColor
     }
-    
 }
 extension ViewController : NSCollectionViewDataSource {
     
@@ -124,21 +122,12 @@ extension ViewController : NSCollectionViewDataSource {
 
         } else {
             let t:[String:Any] = tagsArray[indexPath.item] as! [String : Any]
-            let desc: String = (t["display_name"] as! String)
+            let desc: String = (t["name"] as! String)
             if let image = NSImage(named: NSImage.Name(rawValue: "blur"))
             {
                 let imageFile = ImageFile(thumbnail: image, fileName: desc)
                 collectionViewItem.imageFile = imageFile
             }
-//            do {
-//                if let image = try NSImage(data: Data(contentsOf: self.tagsImageArray[indexPath.item])){
-//                    let imageFile = ImageFile(thumbnail: image, fileName: desc)
-//                    collectionViewItem.imageFile = imageFile
-//                }
-//            }  catch let err{
-//                print(err.localizedDescription)
-//            }
-
         }
         return item
     }
