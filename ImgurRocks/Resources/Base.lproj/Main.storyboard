@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" initialViewController="B8D-0N-5wS">
+<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" initialViewController="KBk-xh-E52">
     <dependencies>
         <deployment identifier="macosx"/>
         <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="13771"/>
@@ -681,88 +681,131 @@
             </objects>
             <point key="canvasLocation" x="45" y="-222"/>
         </scene>
-        <!--Window Controller-->
-        <scene sceneID="R2V-B0-nI4">
+        <!--Gallery View Controller-->
+        <scene sceneID="U83-F1-P5A">
             <objects>
-                <customObject id="Oky-zY-oP4" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
-                <windowController id="B8D-0N-5wS" customClass="HomeWindowController" customModule="ImgurRocks" customModuleProvider="target" sceneMemberID="viewController">
-                    <window key="window" title="Window" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" oneShot="NO" releasedWhenClosed="NO" showsToolbarButton="NO" visibleAtLaunch="NO" animationBehavior="default" id="IQv-IB-iLA">
-                        <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" resizable="YES"/>
-                        <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
-                        <rect key="contentRect" x="514" y="110" width="588" height="492"/>
-                        <rect key="screenRect" x="0.0" y="0.0" width="1680" height="1027"/>
-                        <value key="minSize" type="size" width="800" height="800"/>
-                        <connections>
-                            <outlet property="delegate" destination="B8D-0N-5wS" id="98r-iN-zZc"/>
-                        </connections>
-                    </window>
+                <viewController storyboardIdentifier="gallery" id="IaJ-Tb-NvH" customClass="GalleryViewController" customModule="ImgurRocks" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" id="mkW-64-ejl">
+                        <rect key="frame" x="0.0" y="0.0" width="450" height="300"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <scrollView fixedFrame="YES" autohidesScrollers="YES" horizontalLineScroll="10" horizontalPageScroll="10" verticalLineScroll="10" verticalPageScroll="10" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Mf5-jk-zVn">
+                                <rect key="frame" x="0.0" y="0.0" width="450" height="280"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                <clipView key="contentView" ambiguous="YES" id="HfM-Ek-gC5">
+                                    <rect key="frame" x="1" y="1" width="448" height="278"/>
+                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                    <subviews>
+                                        <collectionView ambiguous="YES" selectable="YES" id="G6B-33-9t4">
+                                            <rect key="frame" x="0.0" y="0.0" width="448" height="278"/>
+                                            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                            <color key="primaryBackgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                            <connections>
+                                                <outlet property="dataSource" destination="IaJ-Tb-NvH" id="zqx-Rb-ZvQ"/>
+                                                <outlet property="delegate" destination="IaJ-Tb-NvH" id="MV6-El-8QD"/>
+                                            </connections>
+                                        </collectionView>
+                                    </subviews>
+                                    <color key="backgroundColor" red="0.25490196079999999" green="0.2901960784" blue="0.29803921570000003" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                </clipView>
+                                <scroller key="horizontalScroller" hidden="YES" verticalHuggingPriority="750" horizontal="YES" id="H59-Tq-jpP">
+                                    <rect key="frame" x="1" y="237" width="377" height="16"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </scroller>
+                                <scroller key="verticalScroller" hidden="YES" verticalHuggingPriority="750" doubleValue="1" horizontal="NO" id="O2d-C1-fAV">
+                                    <rect key="frame" x="363" y="1" width="16" height="249"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </scroller>
+                            </scrollView>
+                        </subviews>
+                    </view>
                     <connections>
-                        <segue destination="XfG-lQ-9wD" kind="relationship" relationship="window.shadowedContentViewController" id="cq2-FE-JQM"/>
+                        <outlet property="collectionView" destination="G6B-33-9t4" id="eKK-Tc-Cwt"/>
                     </connections>
-                </windowController>
+                </viewController>
+                <customObject id="sCF-Hh-K4u" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="24" y="117"/>
+            <point key="canvasLocation" x="-343" y="71"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="hIz-AP-VOD">
             <objects>
                 <customObject id="rPt-NT-nkU" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
-                <viewController id="XfG-lQ-9wD" customClass="ViewController" customModule="ImgurRocks" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="sourceViewController" id="XfG-lQ-9wD" customClass="ViewController" customModule="ImgurRocks" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" id="DYT-oA-Ipd">
-                        <rect key="frame" x="0.0" y="0.0" width="450" height="300"/>
-                        <autoresizingMask key="autoresizingMask"/>
+                        <rect key="frame" x="0.0" y="0.0" width="720" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <scrollView autohidesScrollers="YES" horizontalLineScroll="10" horizontalPageScroll="10" verticalLineScroll="10" verticalPageScroll="10" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bRy-IZ-CGS">
-                                <rect key="frame" x="0.0" y="30" width="450" height="240"/>
-                                <clipView key="contentView" id="GNs-gE-p21">
-                                    <rect key="frame" x="1" y="1" width="448" height="238"/>
+                            <scrollView fixedFrame="YES" autohidesScrollers="YES" horizontalLineScroll="10" horizontalPageScroll="10" verticalLineScroll="10" verticalPageScroll="10" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="p1o-Rh-cUM">
+                                <rect key="frame" x="0.0" y="0.0" width="720" height="560"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                <clipView key="contentView" ambiguous="YES" id="vJs-nd-Vl3">
+                                    <rect key="frame" x="1" y="1" width="718" height="558"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
-                                        <collectionView selectable="YES" id="9mg-0q-tJb">
-                                            <rect key="frame" x="0.0" y="0.0" width="448" height="238"/>
+                                        <collectionView ambiguous="YES" selectable="YES" id="0ef-FT-xWJ">
+                                            <rect key="frame" x="0.0" y="0.0" width="718" height="558"/>
                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                             <color key="primaryBackgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
                                             <connections>
-                                                <outlet property="dataSource" destination="XfG-lQ-9wD" id="4rr-pG-56a"/>
-                                                <outlet property="delegate" destination="XfG-lQ-9wD" id="nTP-9f-jRR"/>
+                                                <outlet property="dataSource" destination="XfG-lQ-9wD" id="NA4-iS-pgx"/>
+                                                <outlet property="delegate" destination="XfG-lQ-9wD" id="vNE-eQ-l36"/>
                                             </connections>
                                         </collectionView>
                                     </subviews>
-                                    <color key="backgroundColor" red="0.25490196078431371" green="0.29019607843137252" blue="0.29803921568627451" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                    <color key="backgroundColor" red="0.25490196079999999" green="0.2901960784" blue="0.29803921570000003" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 </clipView>
-                                <scroller key="horizontalScroller" hidden="YES" verticalHuggingPriority="750" horizontal="YES" id="gm0-cI-s4N">
-                                    <rect key="frame" x="1" y="144" width="233" height="15"/>
+                                <scroller key="horizontalScroller" hidden="YES" verticalHuggingPriority="750" horizontal="YES" id="wne-C3-dq6">
+                                    <rect key="frame" x="1" y="237" width="377" height="16"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </scroller>
-                                <scroller key="verticalScroller" hidden="YES" verticalHuggingPriority="750" doubleValue="1" horizontal="NO" id="Fo8-Wl-1jv">
-                                    <rect key="frame" x="433" y="1" width="16" height="238"/>
+                                <scroller key="verticalScroller" hidden="YES" verticalHuggingPriority="750" doubleValue="1" horizontal="NO" id="gdi-G3-Piw">
+                                    <rect key="frame" x="703" y="1" width="16" height="530"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </scroller>
                             </scrollView>
-                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Mv8-XG-SUQ">
-                                <rect key="frame" x="199" y="278" width="53" height="21"/>
-                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Imgur" id="eGp-Qi-nWT">
-                                    <font key="font" metaFont="systemBold" size="17"/>
-                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
-                                    <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
-                                </textFieldCell>
-                            </textField>
                         </subviews>
-                        <constraints>
-                            <constraint firstItem="bRy-IZ-CGS" firstAttribute="leading" secondItem="DYT-oA-Ipd" secondAttribute="leading" id="27A-BJ-UCi"/>
-                            <constraint firstAttribute="bottom" secondItem="bRy-IZ-CGS" secondAttribute="bottom" constant="30" id="5nY-wS-1Ks"/>
-                            <constraint firstItem="bRy-IZ-CGS" firstAttribute="top" secondItem="Mv8-XG-SUQ" secondAttribute="bottom" constant="8" symbolic="YES" id="9kd-JC-XUS"/>
-                            <constraint firstItem="Mv8-XG-SUQ" firstAttribute="centerX" secondItem="DYT-oA-Ipd" secondAttribute="centerX" id="AaG-bZ-SvO"/>
-                            <constraint firstAttribute="trailing" secondItem="bRy-IZ-CGS" secondAttribute="trailing" id="mi2-2V-GyR"/>
-                            <constraint firstItem="bRy-IZ-CGS" firstAttribute="top" secondItem="DYT-oA-Ipd" secondAttribute="top" constant="30" id="s3h-qY-39A"/>
-                        </constraints>
                     </view>
                     <connections>
-                        <outlet property="collectionView" destination="9mg-0q-tJb" id="Zl9-Ov-2VB"/>
+                        <outlet property="collectionView" destination="0ef-FT-xWJ" id="1fF-Bs-IRN"/>
                     </connections>
                 </viewController>
             </objects>
-            <point key="canvasLocation" x="-76" y="863"/>
+            <point key="canvasLocation" x="157" y="609"/>
+        </scene>
+        <!--Window Controller-->
+        <scene sceneID="Bo9-p0-ltN">
+            <objects>
+                <windowController id="KBk-xh-E52" sceneMemberID="viewController">
+                    <window key="window" title="Window" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" oneShot="NO" releasedWhenClosed="NO" showsToolbarButton="NO" visibleAtLaunch="NO" animationBehavior="default" id="GsT-7g-Xet">
+                        <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" resizable="YES"/>
+                        <rect key="contentRect" x="196" y="240" width="251" height="240"/>
+                        <rect key="screenRect" x="0.0" y="0.0" width="1680" height="1027"/>
+                        <value key="minSize" type="size" width="251" height="240"/>
+                        <connections>
+                            <outlet property="delegate" destination="KBk-xh-E52" id="zS8-zw-rdx"/>
+                        </connections>
+                    </window>
+                    <connections>
+                        <segue destination="fL5-xC-RBY" kind="relationship" relationship="window.shadowedContentViewController" id="8Sh-7q-k4k"/>
+                    </connections>
+                </windowController>
+                <customObject id="WlS-nE-Kfj" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="371" y="81"/>
+        </scene>
+        <!--Container View Controller-->
+        <scene sceneID="ZNr-nq-Bf2">
+            <objects>
+                <viewController title="Container View Controller" storyboardIdentifier="containerViewController" id="fL5-xC-RBY" customClass="ContainerViewController" customModule="View_Controller_Transition_Demo" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" id="vN9-el-NlY">
+                        <rect key="frame" x="0.0" y="0.0" width="123" height="270"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </view>
+                </viewController>
+                <customObject id="L2R-GP-tqe" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="695" y="71"/>
         </scene>
     </scenes>
 </document>

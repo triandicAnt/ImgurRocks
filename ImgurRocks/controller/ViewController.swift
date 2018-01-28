@@ -27,7 +27,7 @@ class ViewController: NSViewController {
     
     func authenticateAPI() {
         //apiManager.testAlamofireAPI()
-        apiManager.fetchGalleryAPIImages() { responseObject, error in
+        apiManager.fetchGalleryAPIImages(tagName: Utils.GALLERY_TAGS) { responseObject, error in
             self.processData(data: responseObject!) {tags,galleries,error in
 //                self.fetchTagImages(tags: tags!) { tagImages, error in
 //                    print(tagImages)

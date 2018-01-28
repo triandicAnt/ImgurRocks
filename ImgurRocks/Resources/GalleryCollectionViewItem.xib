@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="13771" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" customObjectInstantitationMethod="direct">
+    <dependencies>
+        <deployment identifier="macosx"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="13771"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <customObject id="-2" userLabel="File's Owner" customClass="GalleryCollectionViewItem" customModule="ImgurRocks" customModuleProvider="target">
+            <connections>
+                <outlet property="imageView" destination="23P-mG-8IP" id="YID-NN-MIr"/>
+                <outlet property="view" destination="23P-mG-8IP" id="7Qo-FD-itK"/>
+            </connections>
+        </customObject>
+        <customObject id="-1" userLabel="First Responder" customClass="FirstResponder"/>
+        <customObject id="-3" userLabel="Application" customClass="NSObject"/>
+        <customView id="THV-Oc-c0d">
+            <rect key="frame" x="0.0" y="0.0" width="480" height="272"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+            <subviews>
+                <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="23P-mG-8IP" customClass="FancyImageView" customModule="ImgurRocks" customModuleProvider="target">
+                    <rect key="frame" x="0.0" y="0.0" width="480" height="272"/>
+                    <imageCell key="cell" refusesFirstResponder="YES" alignment="left" animates="YES" imageScaling="proportionallyUpOrDown" id="7X9-9v-F44"/>
+                </imageView>
+                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Asd-Un-Wor">
+                    <rect key="frame" x="-2" y="114" width="484" height="30"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="30" id="JjY-xg-vfH"/>
+                    </constraints>
+                    <textFieldCell key="cell" lineBreakMode="truncatingTail" sendsActionOnEndEditing="YES" alignment="center" title="Label" id="EMW-BM-dUf">
+                        <font key="font" metaFont="systemBold" size="17"/>
+                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                    </textFieldCell>
+                </textField>
+            </subviews>
+            <constraints>
+                <constraint firstItem="Asd-Un-Wor" firstAttribute="trailing" secondItem="23P-mG-8IP" secondAttribute="trailing" id="36a-1q-j9h"/>
+                <constraint firstItem="23P-mG-8IP" firstAttribute="top" secondItem="THV-Oc-c0d" secondAttribute="top" id="9ie-4w-58y"/>
+                <constraint firstItem="Asd-Un-Wor" firstAttribute="centerY" secondItem="23P-mG-8IP" secondAttribute="centerY" constant="7" id="dUl-1h-i7F"/>
+                <constraint firstAttribute="bottom" secondItem="23P-mG-8IP" secondAttribute="bottom" id="iXW-5K-inr"/>
+                <constraint firstItem="23P-mG-8IP" firstAttribute="leading" secondItem="THV-Oc-c0d" secondAttribute="leading" id="pcX-cS-1gc"/>
+                <constraint firstAttribute="trailing" secondItem="23P-mG-8IP" secondAttribute="trailing" id="rcw-hj-aQb"/>
+                <constraint firstItem="Asd-Un-Wor" firstAttribute="leading" secondItem="23P-mG-8IP" secondAttribute="leading" id="wG6-Zf-yhx"/>
+            </constraints>
+        </customView>
+    </objects>
+</document>
