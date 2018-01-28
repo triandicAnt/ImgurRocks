@@ -31,6 +31,15 @@ class APIManager: NSObject {
         fireIntheHole(parameters: parameters, urlString: Utils.GALLERY_TAGS, completionHandler: completionHandler)
     }
     
+    func fetchImageDataForHash(hash:String, completionHandler: @escaping (Data?, NSError?) -> ()) {
+        let parameters: Parameters = [
+            "client_id": Utils.CLIENT_ID,
+            "client_secret": Utils.CLIENT_SECRET,
+            "mature":true,
+            ]
+        fireIntheHole(parameters: parameters, urlString: Utils.IMAGE_URL+hash, completionHandler: completionHandler)
+    }
+    
     
     /// This function fetches data from Gallery endpoint
     ///

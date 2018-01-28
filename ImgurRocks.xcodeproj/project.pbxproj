@@ -18,7 +18,9 @@
 		219D69C8201590530046B9F4 /* CollectionViewItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 219D69C6201590530046B9F4 /* CollectionViewItem.swift */; };
 		219D69C9201590530046B9F4 /* CollectionViewItem.xib in Resources */ = {isa = PBXBuildFile; fileRef = 219D69C7201590530046B9F4 /* CollectionViewItem.xib */; };
 		219D69CB201591EB0046B9F4 /* ImageFile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 219D69CA201591EB0046B9F4 /* ImageFile.swift */; };
-		219D69D2201835850046B9F4 /* HeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 219D69D1201835850046B9F4 /* HeaderView.xib */; };
+		219D69D420184E270046B9F4 /* FancyImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 219D69D320184E270046B9F4 /* FancyImageView.swift */; };
+		219D69DB2019946A0046B9F4 /* GalleryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 219D69D92019946A0046B9F4 /* GalleryViewController.swift */; };
+		219D69DC2019946A0046B9F4 /* GalleryViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 219D69DA2019946A0046B9F4 /* GalleryViewController.xib */; };
 		FEBE234889FD93DB86092765 /* Pods_ImgurRocks.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1066918756D44B1805457420 /* Pods_ImgurRocks.framework */; };
 /* End PBXBuildFile section */
 
@@ -38,7 +40,9 @@
 		219D69C6201590530046B9F4 /* CollectionViewItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewItem.swift; sourceTree = "<group>"; };
 		219D69C7201590530046B9F4 /* CollectionViewItem.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CollectionViewItem.xib; sourceTree = "<group>"; };
 		219D69CA201591EB0046B9F4 /* ImageFile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageFile.swift; sourceTree = "<group>"; };
-		219D69D1201835850046B9F4 /* HeaderView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HeaderView.xib; sourceTree = "<group>"; };
+		219D69D320184E270046B9F4 /* FancyImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FancyImageView.swift; sourceTree = "<group>"; };
+		219D69D92019946A0046B9F4 /* GalleryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GalleryViewController.swift; sourceTree = "<group>"; };
+		219D69DA2019946A0046B9F4 /* GalleryViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GalleryViewController.xib; sourceTree = "<group>"; };
 		B9DE90470A72E21454EBCC23 /* Pods-ImgurRocks.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ImgurRocks.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ImgurRocks/Pods-ImgurRocks.debug.xcconfig"; sourceTree = "<group>"; };
 		ECCDE78A28226E5C63660F02 /* Pods-ImgurRocks.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ImgurRocks.release.xcconfig"; path = "Pods/Target Support Files/Pods-ImgurRocks/Pods-ImgurRocks.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -105,6 +109,7 @@
 				219D69C1201588A10046B9F4 /* HomeWindowController.swift */,
 				21830622201182CC007EF87C /* ViewController.swift */,
 				219D69C6201590530046B9F4 /* CollectionViewItem.swift */,
+				219D69D92019946A0046B9F4 /* GalleryViewController.swift */,
 			);
 			path = controller;
 			sourceTree = "<group>";
@@ -112,6 +117,7 @@
 		219D69C4201589440046B9F4 /* view */ = {
 			isa = PBXGroup;
 			children = (
+				219D69D320184E270046B9F4 /* FancyImageView.swift */,
 			);
 			path = view;
 			sourceTree = "<group>";
@@ -127,9 +133,9 @@
 		219D69CE2016AAF40046B9F4 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				219D69D1201835850046B9F4 /* HeaderView.xib */,
 				219D69C7201590530046B9F4 /* CollectionViewItem.xib */,
 				21830626201182CC007EF87C /* Main.storyboard */,
+				219D69DA2019946A0046B9F4 /* GalleryViewController.xib */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -214,7 +220,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				219D69BB2013DB780046B9F4 /* Podfile in Resources */,
-				219D69D2201835850046B9F4 /* HeaderView.xib in Resources */,
+				219D69DC2019946A0046B9F4 /* GalleryViewController.xib in Resources */,
 				219D69C9201590530046B9F4 /* CollectionViewItem.xib in Resources */,
 				21830625201182CC007EF87C /* Assets.xcassets in Resources */,
 				21830628201182CC007EF87C /* Main.storyboard in Resources */,
@@ -288,6 +294,8 @@
 				21830621201182CC007EF87C /* AppDelegate.swift in Sources */,
 				219D69BE2013E4AB0046B9F4 /* Utils.swift in Sources */,
 				219D69CB201591EB0046B9F4 /* ImageFile.swift in Sources */,
+				219D69DB2019946A0046B9F4 /* GalleryViewController.swift in Sources */,
+				219D69D420184E270046B9F4 /* FancyImageView.swift in Sources */,
 				219D69C8201590530046B9F4 /* CollectionViewItem.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

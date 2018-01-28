@@ -18,4 +18,5 @@ class Utils {
     static let GALLERY_URL:String = "https://api.imgur.com/3/gallery/hot/viral/1"
     static let GALLERY_TAG_URL:String = "https://api.imgur.com/3/gallery/t/funny/top/1"
     static let GALLERY_TAGS:String = "https://api.imgur.com/3/tags"
+    static let IMAGE_URL:String = "https://api.imgur.com/3/image/"
 }

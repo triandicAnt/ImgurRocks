@@ -12,9 +12,13 @@ class ViewController: NSViewController {
     @IBOutlet weak var collectionView: NSCollectionView!
     var tagsArray:[Any] = [Any] ()
     var galleryArray:[Any] = [Any] ()
+    var tagsImageArray:[URL] = [URL] ()
+    var galleryImageURL:[URL] = [URL] ()
+    let apiManager = APIManager()
 
     
     override func viewDidLoad() {
+        print("old view controller being called")
         super.viewDidLoad()
         // Call the Imgur API and fetch data
         configureCollectionView()
@@ -22,14 +26,44 @@ class ViewController: NSViewController {
     }
     
     func authenticateAPI() {
-        let apiManager = APIManager()
         //apiManager.testAlamofireAPI()
         apiManager.fetchGalleryAPIImages() { responseObject, error in
-            self.processData(data: responseObject!)
+            self.processData(data: responseObject!) {tags,galleries,error in
+//                self.fetchTagImages(tags: tags!) { tagImages, error in
+//                    print(tagImages)
+                    self.collectionView.reloadData()
+//                }
+            }
+        }
+    }
+
+    func fetchTagImages(tags: [Any], completionHandler: @escaping ([URL], NSError?) -> ()) {
+        let myGroup = DispatchGroup()
+        for tag in tags{
+            print(tag)
+            let t:[String:Any] = tag as! [String : Any]
+            let bgHash = t["background_hash"] as! String
+            myGroup.enter()
+            self.apiManager.fetchImageDataForHash(hash: bgHash) { responseObject, error in
+                do {
+                    if let imgData = try JSONSerialization.jsonObject(with: responseObject!, options:.allowFragments) as? [String:Any] {
+                        print(imgData)
+                        let imgValueData:[String : Any] = (imgData["data"] as? [String : Any])!
+                        self.tagsImageArray.append(NSURL(string: (imgValueData["link"] as! String))! as URL)
+                        myGroup.leave()
+                    }
+                }  catch let err{
+                    print(err.localizedDescription)
+                }
+            }
+        }
+        myGroup.notify(queue: DispatchQueue.main) {
+//            print(self.tagsImageArray)
+            completionHandler(self.tagsImageArray, nil)
         }
     }
     
-    func processData (data: Data) {
+    func processData (data: Data, completionHandler: @escaping ([Any]?, [Any]?, NSError?) -> ()) {
         do {
             if let jsonVal = try JSONSerialization.jsonObject(with: data, options:.allowFragments) as? [String:Any] {
                 let jsonValueData:[String : Any] = (jsonVal["data"] as? [String : Any])!
@@ -39,17 +73,9 @@ class ViewController: NSViewController {
                 let galleries: [Any] = (jsonValueData["galleries"] as? [Any])!
                 galleryArray = galleries
                 print(galleries.count)
-                for tag in tags{
-                    let t:[String:Any] = tag as! [String : Any]
-                    //                        print((t["display_name"] as! String) + "  " + (t["name"] as! String))
-                }
                 print("---------------------")
-                for gallery in galleries{
-                    let g:[String:Any] = gallery as! [String : Any]
-//                    print(g)
-                }
+                completionHandler(tagsArray, galleryArray, nil)
             }
-            collectionView.reloadData()
         } catch let err{
             print(err.localizedDescription)
         }
@@ -104,6 +130,15 @@ extension ViewController : NSCollectionViewDataSource {
                 let imageFile = ImageFile(thumbnail: image, fileName: desc)
                 collectionViewItem.imageFile = imageFile
             }
+//            do {
+//                if let image = try NSImage(data: Data(contentsOf: self.tagsImageArray[indexPath.item])){
+//                    let imageFile = ImageFile(thumbnail: image, fileName: desc)
+//                    collectionViewItem.imageFile = imageFile
+//                }
+//            }  catch let err{
+//                print(err.localizedDescription)
+//            }
+
         }
         return item
     }
