@@ -810,11 +810,11 @@
                                     </button>
                                 </subviews>
                             </customView>
-                            <button verticalHuggingPriority="750" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="5fF-Yw-X7y">
-                                <rect key="frame" x="462" y="369" width="100" height="19"/>
-                                <buttonCell key="cell" type="roundRect" title="Tags" bezelStyle="roundedRect" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="xoH-u2-6OV">
+                            <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="5fF-Yw-X7y">
+                                <rect key="frame" x="491" y="366" width="43" height="25"/>
+                                <buttonCell key="cell" type="roundTextured" title="Tags" bezelStyle="texturedRounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="xoH-u2-6OV">
                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                                    <font key="font" metaFont="cellTitle"/>
+                                    <font key="font" metaFont="system"/>
                                 </buttonCell>
                                 <connections>
                                     <action selector="loadTagsWithSender:" target="IaJ-Tb-NvH" id="e5e-9U-zNo"/>
@@ -838,6 +838,15 @@
                                     <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                 </textFieldCell>
                             </textField>
+                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="PlO-iC-Ykw">
+                                <rect key="frame" x="540" y="370" width="77" height="17"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Funny" id="gLQ-AV-51v">
+                                    <font key="font" metaFont="systemBold"/>
+                                    <color key="textColor" name="highlightColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
                         </subviews>
                         <constraints>
                             <constraint firstItem="Mf5-jk-zVn" firstAttribute="top" secondItem="5fF-Yw-X7y" secondAttribute="bottom" constant="8" id="Fkl-O5-6dD"/>
@@ -854,6 +863,7 @@
                         <outlet property="sectionBox" destination="Uw2-9L-GDr" id="YrB-gB-NZH"/>
                         <outlet property="sortBox" destination="fDn-ml-7aj" id="1Ca-jn-rid"/>
                         <outlet property="tagsButton" destination="5fF-Yw-X7y" id="aJu-lJ-SU2"/>
+                        <outlet property="tagsLabel" destination="PlO-iC-Ykw" id="sh5-Tv-Gvz"/>
                         <outlet property="viralButton" destination="7cq-cn-RwE" id="cL6-nh-jv0"/>
                     </connections>
                 </viewController>

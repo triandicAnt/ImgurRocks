@@ -16,6 +16,7 @@ class GalleryViewController: NSViewController {
     @IBOutlet weak var viralButton: NSButton!
     @IBOutlet weak var sectionBox: NSBox!
     @IBOutlet weak var sortBox: NSBox!
+    @IBOutlet weak var tagsLabel: NSTextField!
 
     var sortString:String!
     var sectionString:String!

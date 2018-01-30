@@ -23,6 +23,7 @@ class FancyImageView: NSImageView {
         let destinationViewController = self.superview?.superview?.superview?.superview?.superview?.nextResponder as! NSViewController
         let sourceViewController = self.superview?.superview?.superview?.superview?.superview?.superview?.nextResponder as! GalleryViewController
         let textField = self.superview?.subviews[1] as! NSTextField
+        sourceViewController.tagsLabel.stringValue = textField.stringValue
         sourceViewController.galleryPosts.removeAll()
         sourceViewController.authenticateAPI(tagName:textField.stringValue)
         destinationViewController.dismissViewController(destinationViewController)
