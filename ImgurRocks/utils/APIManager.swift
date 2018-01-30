@@ -18,14 +18,14 @@ class APIManager: NSObject {
         fireIntheHole(parameters: parameters, urlString: Utils.MY_URL, completionHandler: completionHandler)
     }
     
-    func fetchGalleryAPIImages(tagName: String, completionHandler: @escaping (Data?, NSError?) -> ()) {
+    func fetchGalleryAPIImages(tagName: String, mature:Int, viral:Int, completionHandler: @escaping (Data?, NSError?) -> ()) {
         print("fetch gallery is being called")
         // {"showViral":"true","mature":"true","album_previews":"true"}
         let parameters: Parameters = [
             "client_id": Utils.CLIENT_ID,
             "client_secret": Utils.CLIENT_SECRET,
-            "showViral":true,
-            "mature":true,
+            "showViral":viral,
+            "mature":mature,
             "album_previews": true,
         ]
         fireIntheHole(parameters: parameters, urlString: tagName, completionHandler: completionHandler)

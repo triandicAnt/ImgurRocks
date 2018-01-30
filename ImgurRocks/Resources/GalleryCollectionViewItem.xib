@@ -18,7 +18,7 @@
             <rect key="frame" x="0.0" y="0.0" width="480" height="272"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
             <subviews>
-                <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="23P-mG-8IP" customClass="FancyImageView" customModule="ImgurRocks" customModuleProvider="target">
+                <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="23P-mG-8IP" customClass="GalleryImageView" customModule="ImgurRocks" customModuleProvider="target">
                     <rect key="frame" x="0.0" y="0.0" width="480" height="234"/>
                     <imageCell key="cell" refusesFirstResponder="YES" alignment="left" animates="YES" imageScaling="proportionallyUpOrDown" id="7X9-9v-F44"/>
                 </imageView>

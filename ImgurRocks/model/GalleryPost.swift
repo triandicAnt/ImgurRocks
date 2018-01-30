@@ -21,5 +21,10 @@ class GalleryPost {
         self.images = images
     }
     
+    func toString() {
+        print(self.title)
+        print(self.images)
+    }
+    
 }
 

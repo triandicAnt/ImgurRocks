@@ -12,16 +12,35 @@ class GalleryViewController: NSViewController {
 
     @IBOutlet weak var collectionView: NSCollectionView!
     @IBOutlet weak var tagsButton :NSButton!
+    @IBOutlet weak var matureButton: NSButton!
+    @IBOutlet weak var viralButton: NSButton!
+    @IBOutlet weak var sectionBox: NSBox!
+    @IBOutlet weak var sortBox: NSBox!
+
+    var sortString:String!
+    var sectionString:String!
+
     let apiManager = APIManager()
     var galleryPosts : [GalleryPost] = [GalleryPost]()
     
     override func viewDidLoad() {
-        print("called......")
         super.viewDidLoad()
         self.view.wantsLayer = true
         self.view.layer?.backgroundColor = NSColor(hex: "309f98").cgColor
         self.view.wantsLayer = true
-        self.tagsButton.layer?.backgroundColor = NSColor(hex: "944a7d").cgColor
+        self.tagsButton.layer?.backgroundColor = NSColor(hex: "FFFFFF").cgColor
+        self.sortString = "viral"
+        self.sectionString = "hot"
+        sectionBox.alphaValue = 1
+        sectionBox.borderColor = NSColor.red
+        sectionBox.borderType = .lineBorder
+        sectionBox.borderWidth = 5
+        sortBox.alphaValue = 1
+        sortBox.borderColor = NSColor.red
+        sortBox.borderType = .lineBorder
+        sortBox.borderWidth = 5
+
+
         configureCollectionView()
         authenticateAPI()
     }
@@ -39,15 +58,21 @@ class GalleryViewController: NSViewController {
     }
     
     @IBAction func loadTags(sender: NSButton) {
-        print("loading tags ...")
         let animator = MyCustomSwiftAnimator()
         let mainStoryboard: NSStoryboard = NSStoryboard(name: NSStoryboard.Name(rawValue: "Main"), bundle: nil)
         let destinationViewController = mainStoryboard.instantiateController(withIdentifier: NSStoryboard.SceneIdentifier(rawValue: "tags")) as! NSViewController
         self.presentViewController(destinationViewController, animator: animator)
     }
+    
+    @IBAction func sortBy(sender: NSButton) {
+        sortString = sender.title.lowercased()
+    }
+    @IBAction func sectionBy(sender: NSButton) {
+        sectionString = sender.title.lowercased()
+    }
     func authenticateAPI(tagName :String = "funny") {
-        let tagUrl = Utils.GALLERY_TAG_URL + tagName + "/top/1"
-        apiManager.fetchGalleryAPIImages(tagName: tagUrl) { responseObject, error in
+        let tagUrl = Utils.GALLERY_TAG_URL + tagName + "/" + self.sortString + "/1"
+        apiManager.fetchGalleryAPIImages(tagName: tagUrl, mature: self.matureButton.state.rawValue, viral: self.viralButton.state.rawValue) { responseObject, error in
             self.processData(data: responseObject!) {posts,error in
                 self.collectionView.reloadData()
             }
@@ -136,6 +161,8 @@ extension GalleryViewController : NSCollectionViewDataSource {
 //        collectionViewItem.title = post.title
         let imageFile = ImageFile(thumbnail: post.homeImage!, fileName: post.title!)
         collectionViewItem.imageFile = imageFile
+        let galleryImgView = collectionViewItem.imageView as! GalleryImageView
+        galleryImgView.index = indexPath.item
         return item
     }
 }

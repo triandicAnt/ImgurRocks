@@ -9,7 +9,7 @@
 import Cocoa
 
 class GalleryCollectionViewItem: NSCollectionViewItem {
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do view setup here.
@@ -26,6 +26,4 @@ class GalleryCollectionViewItem: NSCollectionViewItem {
             }
         }
     }
-
-    
 }
