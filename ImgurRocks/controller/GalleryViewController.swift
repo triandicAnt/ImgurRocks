@@ -39,8 +39,17 @@ class GalleryViewController: NSViewController {
         sortBox.borderColor = NSColor.red
         sortBox.borderType = .lineBorder
         sortBox.borderWidth = 5
-
-
+        let style = NSMutableParagraphStyle()
+        matureButton.attributedTitle = NSMutableAttributedString(string: "Mature", attributes: [NSAttributedStringKey.foregroundColor: NSColor.white, NSAttributedStringKey.paragraphStyle: style, NSAttributedStringKey.font: NSFont.systemFont(ofSize: 11)])
+        viralButton.attributedTitle = NSMutableAttributedString(string: "Viral", attributes: [NSAttributedStringKey.foregroundColor: NSColor.white, NSAttributedStringKey.paragraphStyle: style, NSAttributedStringKey.font: NSFont.systemFont(ofSize: 11)])
+        for view in self.sortBox.subviews {
+            let button:NSButton = view as! NSButton
+            button.attributedTitle = NSMutableAttributedString(string: button.title, attributes: [NSAttributedStringKey.foregroundColor: NSColor.white, NSAttributedStringKey.paragraphStyle: style, NSAttributedStringKey.font: NSFont.systemFont(ofSize: 11)])
+        }
+        for view in self.sectionBox.subviews {
+            let button:NSButton = view as! NSButton
+            button.attributedTitle = NSMutableAttributedString(string: button.title, attributes: [NSAttributedStringKey.foregroundColor: NSColor.white, NSAttributedStringKey.paragraphStyle: style, NSAttributedStringKey.font: NSFont.systemFont(ofSize: 11)])
+        }
         configureCollectionView()
         authenticateAPI()
     }
