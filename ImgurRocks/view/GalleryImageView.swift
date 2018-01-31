@@ -17,14 +17,11 @@ class GalleryImageView: NSImageView {
     var index : Int?
     
     override func mouseDown(with event: NSEvent) {
-        print("mousedown in image")
         let mainStoryboard: NSStoryboard = NSStoryboard(name: NSStoryboard.Name(rawValue: "Main"), bundle: nil)
         let destinationViewController = mainStoryboard.instantiateController(withIdentifier: NSStoryboard.SceneIdentifier(rawValue: "post")) as! PostViewController
         let sourceViewController = self.superview?.superview?.superview?.superview?.nextResponder as! GalleryViewController
-        let animator = MyCustomSwiftAnimator()
-        sourceViewController.presentViewController(destinationViewController, animator: animator)
+        sourceViewController.presentViewControllerAsSheet(destinationViewController)
+        destinationViewController.galleryViewController = sourceViewController
         destinationViewController.processPost(post : sourceViewController.galleryPosts[self.index!])
     }
-
-    
 }

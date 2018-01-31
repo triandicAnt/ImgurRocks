@@ -956,11 +956,11 @@
             <objects>
                 <viewController storyboardIdentifier="post" id="F1P-12-GpG" customClass="PostViewController" customModule="ImgurRocks" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" id="JWB-Cx-foE">
-                        <rect key="frame" x="0.0" y="0.0" width="614" height="545"/>
-                        <autoresizingMask key="autoresizingMask"/>
+                        <rect key="frame" x="0.0" y="0.0" width="810" height="847"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="OfM-0s-7fz">
-                                <rect key="frame" x="18" y="508" width="578" height="17"/>
+                                <rect key="frame" x="18" y="810" width="412" height="17"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Lorem ipsum dollar sits amet" id="N4F-eK-2pv">
                                     <font key="font" metaFont="system"/>
@@ -968,38 +968,55 @@
                                     <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                 </textFieldCell>
                             </textField>
-                            <scrollView fixedFrame="YES" horizontalLineScroll="10" horizontalPageScroll="10" verticalLineScroll="10" verticalPageScroll="10" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iRQ-MY-Ewt">
-                                <rect key="frame" x="20" y="20" width="574" height="480"/>
+                            <scrollView fixedFrame="YES" autohidesScrollers="YES" horizontalLineScroll="10" horizontalPageScroll="10" verticalLineScroll="10" verticalPageScroll="10" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LdO-D5-8x8">
+                                <rect key="frame" x="0.0" y="0.0" width="810" height="794"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                                <clipView key="contentView" ambiguous="YES" id="2XL-cL-28v">
-                                    <rect key="frame" x="1" y="1" width="572" height="478"/>
+                                <clipView key="contentView" ambiguous="YES" id="ZAh-xC-Sgs">
+                                    <rect key="frame" x="1" y="1" width="808" height="792"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
-                                        <view fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="80X-TO-Ywn">
-                                            <rect key="frame" x="0.0" y="0.0" width="557" height="463"/>
+                                        <collectionView ambiguous="YES" selectable="YES" id="a3C-xY-0K5">
+                                            <rect key="frame" x="0.0" y="0.0" width="808" height="792"/>
                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                                        </view>
+                                            <color key="primaryBackgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                            <connections>
+                                                <outlet property="dataSource" destination="F1P-12-GpG" id="GCy-UB-VUc"/>
+                                                <outlet property="delegate" destination="F1P-12-GpG" id="tgv-wV-R0x"/>
+                                            </connections>
+                                        </collectionView>
                                     </subviews>
+                                    <color key="backgroundColor" red="0.25490196079999999" green="0.2901960784" blue="0.29803921570000003" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 </clipView>
-                                <scroller key="horizontalScroller" verticalHuggingPriority="750" horizontal="YES" id="4TX-0M-TU9">
-                                    <rect key="frame" x="1" y="463" width="572" height="16"/>
+                                <scroller key="horizontalScroller" hidden="YES" verticalHuggingPriority="750" horizontal="YES" id="nIc-l7-fib">
+                                    <rect key="frame" x="1" y="726" width="792" height="16"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </scroller>
-                                <scroller key="verticalScroller" verticalHuggingPriority="750" doubleValue="1" horizontal="NO" id="Np4-H1-frN">
-                                    <rect key="frame" x="557" y="1" width="16" height="478"/>
+                                <scroller key="verticalScroller" hidden="YES" verticalHuggingPriority="750" doubleValue="1" horizontal="NO" id="yqg-TI-G1B">
+                                    <rect key="frame" x="777" y="1" width="16" height="741"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </scroller>
                             </scrollView>
+                            <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="gZA-L1-YdO">
+                                <rect key="frame" x="718" y="799" width="75" height="32"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMinY="YES"/>
+                                <buttonCell key="cell" type="push" title="Close" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="IMb-gV-fag">
+                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                    <font key="font" metaFont="system"/>
+                                </buttonCell>
+                                <connections>
+                                    <action selector="closeSheetWithSender:" target="F1P-12-GpG" id="mh2-xI-wrs"/>
+                                </connections>
+                            </button>
                         </subviews>
                     </view>
                     <connections>
-                        <outlet property="scrollView" destination="iRQ-MY-Ewt" id="D6e-uh-mdm"/>
+                        <outlet property="collectionView" destination="a3C-xY-0K5" id="OWx-Ak-GOg"/>
                         <outlet property="textField" destination="OfM-0s-7fz" id="oit-GR-2mi"/>
                     </connections>
                 </viewController>
                 <customObject id="aT5-w2-e1W" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1084" y="462.5"/>
+            <point key="canvasLocation" x="1182" y="613.5"/>
         </scene>
     </scenes>
 </document>

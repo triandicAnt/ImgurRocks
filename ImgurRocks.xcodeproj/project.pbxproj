@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		212FE19720219B9D0072625B /* PostCollectionViewItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 212FE19520219B9D0072625B /* PostCollectionViewItem.swift */; };
+		212FE19820219B9D0072625B /* PostCollectionViewItem.xib in Resources */ = {isa = PBXBuildFile; fileRef = 212FE19620219B9D0072625B /* PostCollectionViewItem.xib */; };
+		212FE19A2021A6830072625B /* PostImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 212FE1992021A6830072625B /* PostImageView.swift */; };
 		21830621201182CC007EF87C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21830620201182CC007EF87C /* AppDelegate.swift */; };
 		21830623201182CC007EF87C /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21830622201182CC007EF87C /* ViewController.swift */; };
 		21830625201182CC007EF87C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 21830624201182CC007EF87C /* Assets.xcassets */; };
@@ -33,6 +36,9 @@
 
 /* Begin PBXFileReference section */
 		1066918756D44B1805457420 /* Pods_ImgurRocks.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ImgurRocks.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		212FE19520219B9D0072625B /* PostCollectionViewItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostCollectionViewItem.swift; sourceTree = "<group>"; };
+		212FE19620219B9D0072625B /* PostCollectionViewItem.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PostCollectionViewItem.xib; sourceTree = "<group>"; };
+		212FE1992021A6830072625B /* PostImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostImageView.swift; sourceTree = "<group>"; };
 		2183061D201182CC007EF87C /* ImgurRocks.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ImgurRocks.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		21830620201182CC007EF87C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		21830622201182CC007EF87C /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -138,6 +144,8 @@
 				219D69D320184E270046B9F4 /* FancyImageView.swift */,
 				219D69E1201DAE140046B9F4 /* GalleryCollectionViewItem.swift */,
 				219D69ED201E8EB20046B9F4 /* GalleryImageView.swift */,
+				212FE19520219B9D0072625B /* PostCollectionViewItem.swift */,
+				212FE1992021A6830072625B /* PostImageView.swift */,
 			);
 			path = view;
 			sourceTree = "<group>";
@@ -155,6 +163,7 @@
 			isa = PBXGroup;
 			children = (
 				219D69C7201590530046B9F4 /* CollectionViewItem.xib */,
+				212FE19620219B9D0072625B /* PostCollectionViewItem.xib */,
 				21830626201182CC007EF87C /* Main.storyboard */,
 				219D69E2201DAE140046B9F4 /* GalleryCollectionViewItem.xib */,
 			);
@@ -241,6 +250,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				219D69E4201DAE140046B9F4 /* GalleryCollectionViewItem.xib in Resources */,
+				212FE19820219B9D0072625B /* PostCollectionViewItem.xib in Resources */,
 				219D69BB2013DB780046B9F4 /* Podfile in Resources */,
 				219D69C9201590530046B9F4 /* CollectionViewItem.xib in Resources */,
 				21830625201182CC007EF87C /* Assets.xcassets in Resources */,
@@ -321,10 +331,12 @@
 				21830621201182CC007EF87C /* AppDelegate.swift in Sources */,
 				219D69BE2013E4AB0046B9F4 /* Utils.swift in Sources */,
 				219D69EC201E8D9C0046B9F4 /* PostViewController.swift in Sources */,
+				212FE19A2021A6830072625B /* PostImageView.swift in Sources */,
 				219D69CB201591EB0046B9F4 /* ImageFile.swift in Sources */,
 				219D69DB2019946A0046B9F4 /* GalleryViewController.swift in Sources */,
 				219D69D420184E270046B9F4 /* FancyImageView.swift in Sources */,
 				219D69C8201590530046B9F4 /* CollectionViewItem.swift in Sources */,
+				212FE19720219B9D0072625B /* PostCollectionViewItem.swift in Sources */,
 				219D69E0201DAC430046B9F4 /* MyTransitionAnimator.swift in Sources */,
 				219D69EE201E8EB20046B9F4 /* GalleryImageView.swift in Sources */,
 			);

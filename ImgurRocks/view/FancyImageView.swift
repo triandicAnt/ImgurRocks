@@ -29,7 +29,6 @@ class FancyImageView: NSImageView {
             let t:[String:Any] = destinationViewController.tagsArray[self.index!] as! [String : Any]
             tagName = t["display_name"]! as? String
         }
-        print(tagName!)
         sourceViewController.tagsLabel.stringValue = textField.stringValue
         tagName = tagName?.replacingOccurrences(of: " ", with: "_")
         sourceViewController.galleryPosts.removeAll()
