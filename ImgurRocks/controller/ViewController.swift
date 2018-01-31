@@ -29,8 +29,6 @@ class ViewController: NSViewController {
         //apiManager.testAlamofireAPI()
         apiManager.fetchGalleryAPIImages(tagName: Utils.GALLERY_TAGS, mature: 1, viral: 1) { responseObject, error in
             self.processData(data: responseObject!) {tags,galleries,error in
-//                self.fetchTagImages(tags: tags!) { tagImages, error in
-//                    print(tagImages)
                     self.collectionView.reloadData()
 //                }
             }
@@ -69,11 +67,9 @@ class ViewController: NSViewController {
                 let jsonValueData:[String : Any] = (jsonVal["data"] as? [String : Any])!
                 let tags: [Any] = (jsonValueData["tags"] as? [Any])!
                 tagsArray = tags
-                print(tags.count)
+//                print(tags)
                 let galleries: [Any] = (jsonValueData["galleries"] as? [Any])!
                 galleryArray = galleries
-                print(galleries.count)
-                print("---------------------")
                 completionHandler(tagsArray, galleryArray, nil)
             }
         } catch let err{
@@ -119,16 +115,18 @@ extension ViewController : NSCollectionViewDataSource {
                 let imageFile = ImageFile(thumbnail: image, fileName: desc)
                 collectionViewItem.imageFile = imageFile
             }
-
         } else {
             let t:[String:Any] = tagsArray[indexPath.item] as! [String : Any]
-            let desc: String = (t["name"] as! String)
+            let desc: String = (t["display_name"] as! String)
             if let image = NSImage(named: NSImage.Name(rawValue: "blur"))
             {
                 let imageFile = ImageFile(thumbnail: image, fileName: desc)
                 collectionViewItem.imageFile = imageFile
             }
         }
+        let fancyImageView = collectionViewItem.imageView as! FancyImageView
+        fancyImageView.index = indexPath.item
+        fancyImageView.section = indexPath.section
         return item
     }
 }

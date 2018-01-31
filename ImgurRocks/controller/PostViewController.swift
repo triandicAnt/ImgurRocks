@@ -18,14 +18,13 @@ class PostViewController: NSViewController {
     }
     
     func processPost(post : GalleryPost) {
-        post.toString()
         self.textField.stringValue = post.title!
-        for image in post.images! {
-            if let image:NSImage = image {
-                let imgView = NSImageView()
-                imgView.image = image
-                self.scrollView.addSubview(imgView)
-            }
-        }
+//        for image in post.images! {
+//            if let image:NSImage = image {
+//                let imgView = NSImageView()
+//                imgView.image = image
+//                self.scrollView.addSubview(imgView)
+//            }
+//        }
     }
 }

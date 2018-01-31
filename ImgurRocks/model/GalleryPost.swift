@@ -10,21 +10,15 @@ import Cocoa
 
 class GalleryPost {
     
-    fileprivate(set) var homeImage: NSImage?
     fileprivate(set) var title: String?
-    fileprivate(set) var images: [NSImage]?
+    fileprivate(set) var homeImageUrl: URL?
+    fileprivate(set) var imageUrls: [URL]?
 
     
-    init?(homeImage : NSImage, title: String, images:[NSImage]) {
-        self.homeImage = homeImage
+    init?(homeImageUrl : URL, imageUrls:[URL], title: String) {
+        self.homeImageUrl = homeImageUrl
+        self.imageUrls = imageUrls
         self.title = title
-        self.images = images
     }
-    
-    func toString() {
-        print(self.title)
-        print(self.images)
-    }
-    
 }
 

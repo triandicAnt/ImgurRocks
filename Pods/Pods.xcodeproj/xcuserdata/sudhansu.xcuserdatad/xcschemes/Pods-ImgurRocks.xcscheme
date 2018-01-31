@@ -14,7 +14,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "A4F2DC9B1228F1D93BDB76C542FE47A8"
+               BlueprintIdentifier = "C262832E5107D96716B50A20677E703C"
                BuildableName = "Pods_ImgurRocks.framework"
                BlueprintName = "Pods-ImgurRocks"
                ReferencedContainer = "container:Pods.xcodeproj">
@@ -47,7 +47,7 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "A4F2DC9B1228F1D93BDB76C542FE47A8"
+            BlueprintIdentifier = "C262832E5107D96716B50A20677E703C"
             BuildableName = "Pods_ImgurRocks.framework"
             BlueprintName = "Pods-ImgurRocks"
             ReferencedContainer = "container:Pods.xcodeproj">

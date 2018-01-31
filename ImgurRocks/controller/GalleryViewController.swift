@@ -7,7 +7,7 @@
 //
 
 import Cocoa
-
+import Kingfisher
 class GalleryViewController: NSViewController {
 
     @IBOutlet weak var collectionView: NSCollectionView!
@@ -23,9 +23,11 @@ class GalleryViewController: NSViewController {
 
     let apiManager = APIManager()
     var galleryPosts : [GalleryPost] = [GalleryPost]()
-    
+    var pageNumber: Int = 1
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.collectionView.delegate = self
+        self.collectionView.dataSource = self
         self.view.wantsLayer = true
         self.view.layer?.backgroundColor = NSColor(hex: "309f98").cgColor
         self.view.wantsLayer = true
@@ -80,8 +82,8 @@ class GalleryViewController: NSViewController {
     @IBAction func sectionBy(sender: NSButton) {
         sectionString = sender.title.lowercased()
     }
-    func authenticateAPI(tagName :String = "funny") {
-        let tagUrl = Utils.GALLERY_TAG_URL + tagName + "/" + self.sortString + "/1"
+    func authenticateAPI(tagName :String = "funny", pageNumber :Int = 1) {
+        let tagUrl = Utils.GALLERY_TAG_URL + tagName + "/" + self.sortString + "/" + String(pageNumber)
         apiManager.fetchGalleryAPIImages(tagName: tagUrl, mature: self.matureButton.state.rawValue, viral: self.viralButton.state.rawValue) { responseObject, error in
             self.processData(data: responseObject!) {posts,error in
                 self.collectionView.reloadData()
@@ -97,7 +99,7 @@ class GalleryViewController: NSViewController {
                 for item in items {
                     let post:[String:Any] = item as! [String : Any]
                     let title:String = (post["title"] as? String)!
-                    var imageArray : [NSImage] = [NSImage]()
+                    var imageUrls : [URL] = [URL]()
                     if let imageFiles = post["images"] {
                         let imgDict:[Any] = (imageFiles as? [Any])!
                         for image in imgDict {
@@ -105,26 +107,26 @@ class GalleryViewController: NSViewController {
                             let imgUrl:String = img["link"] as! String
                             let url = URL(string: imgUrl)
                             let fileExt = NSURL(fileURLWithPath: imgUrl).pathExtension
-                            if !["mp4", "gif", "gifv"].contains(fileExt!) {
-                                if let data = try? Data(contentsOf: url!){
-                                    imageArray.append(NSImage(data: data)!)
-                                }
-                            } else if fileExt == "gif" {
-                                imageArray.append(NSImage(byReferencing: url!))
+                            // image view not able to handle mp4s
+                            if fileExt == "mp4" {
+                                continue
                             }
+                            imageUrls.append(url!)
                         }
                     }
                     else if let imageFiles = post["gifv"] {
                         let imgUrl:String = imageFiles as! String
-                        let url = URL(string: imgUrl)
-                        imageArray.append(NSImage(byReferencing: url!))
+                        let indexEndOfText = imgUrl.index(imgUrl.endIndex, offsetBy: -1)
+                        let substring2 = imgUrl[..<indexEndOfText]
+                        let url = URL(string: String(substring2))
+                        imageUrls.append(url!)
                     }
-                    if imageArray.count > 0 {
-                        let galleryPost: GalleryPost = GalleryPost(homeImage: imageArray[0], title: title, images: imageArray)!
-                        self.galleryPosts.append(galleryPost)
-                        completionHandler(self.galleryPosts, nil)
+                    if imageUrls.count > 0 {
+                        let gp: GalleryPost = GalleryPost(homeImageUrl: imageUrls[0], imageUrls: imageUrls, title: title)!
+                        self.galleryPosts.append(gp)
                     }
                 }
+                completionHandler(self.galleryPosts, nil)
             }
         } catch let err{
             print(err.localizedDescription)
@@ -167,13 +169,25 @@ extension GalleryViewController : NSCollectionViewDataSource {
         let item = collectionView.makeItem(withIdentifier: .collectionViewItem, for: indexPath)
         guard let collectionViewItem = item as? GalleryCollectionViewItem else {return item}
         let post:GalleryPost = self.galleryPosts[indexPath.item]
-//        collectionViewItem.imageView?.image = post.homeImage
-//        collectionViewItem.title = post.title
-        let imageFile = ImageFile(thumbnail: post.homeImage!, fileName: post.title!)
-        collectionViewItem.imageFile = imageFile
+        item.imageView?.kf.indicatorType = .activity
+        item.imageView?.kf.setImage(with: post.homeImageUrl, placeholder: nil, options: nil,
+                                    progressBlock: { receivedSize, totalSize in
+                                    },
+                                    completionHandler: { image, error, cacheType, imageURL in
+                                    })
+        item.imageView?.animates = true
         let galleryImgView = collectionViewItem.imageView as! GalleryImageView
         galleryImgView.index = indexPath.item
         return item
+    }
+}
+
+extension GalleryViewController :NSCollectionViewDelegate {
+    func collectionView(_ collectionView: NSCollectionView, willDisplay item: NSCollectionViewItem, forRepresentedObjectAt indexPath: IndexPath) {
+        if indexPath.item == self.galleryPosts.count-1 {
+            self.pageNumber = self.pageNumber + 1
+            self.authenticateAPI(pageNumber: self.pageNumber)
+        }
     }
 }
 

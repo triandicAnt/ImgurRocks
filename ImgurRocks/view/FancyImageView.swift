@@ -15,17 +15,25 @@ class FancyImageView: NSImageView {
         self.imageScaling = .scaleProportionallyUpOrDown
         // Drawing code here.
     }
-    
+    var index : Int?
+    var section : Int?
     override func mouseDown(with event: NSEvent) {
-        print("mousedown in image")
-//        let mainStoryboard: NSStoryboard = NSStoryboard(name: NSStoryboard.Name(rawValue: "Main"), bundle: nil)
-//        let currentViewController = mainStoryboard.instantiateController(withIdentifier: NSStoryboard.SceneIdentifier(rawValue: "gallery")) as! GalleryViewController
-        let destinationViewController = self.superview?.superview?.superview?.superview?.superview?.nextResponder as! NSViewController
+        let destinationViewController = self.superview?.superview?.superview?.superview?.superview?.nextResponder as! ViewController
         let sourceViewController = self.superview?.superview?.superview?.superview?.superview?.superview?.nextResponder as! GalleryViewController
         let textField = self.superview?.subviews[1] as! NSTextField
+        var tagName :String?
+        if self.section == 0 {
+            let g:[String:Any] = destinationViewController.galleryArray[self.index!] as! [String : Any]
+            tagName = g["name"]! as? String
+        } else {
+            let t:[String:Any] = destinationViewController.tagsArray[self.index!] as! [String : Any]
+            tagName = t["display_name"]! as? String
+        }
+        print(tagName!)
         sourceViewController.tagsLabel.stringValue = textField.stringValue
+        tagName = tagName?.replacingOccurrences(of: " ", with: "_")
         sourceViewController.galleryPosts.removeAll()
-        sourceViewController.authenticateAPI(tagName:textField.stringValue)
+        sourceViewController.authenticateAPI(tagName:tagName!)
         destinationViewController.dismissViewController(destinationViewController)
     }
 }
