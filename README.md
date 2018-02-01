@@ -2,9 +2,12 @@
 Imgur App for Macintosh
 
 ## TODO
-~~1. Infinite scroll in gallery scroll view.
-2. Fetch gallery data.
-3. Add sheet for individual post (that will contain all images, description and comments).~~
+~~1. Infinite scroll in gallery scroll view.~~
+
+~~2. Fetch gallery data.~~
+
+~~3. Add sheet for individual post (that will contain all images, description and comments).~~
+
 4. .MOV are not displayed, fix it.
 
 
