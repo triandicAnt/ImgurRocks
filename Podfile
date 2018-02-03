@@ -7,6 +7,7 @@ target 'ImgurRocks' do
   use_frameworks!
   pod 'Alamofire', '~> 4.5'
   pod 'Kingfisher', '~> 4.0'
+  pod 'ProgressKit'
   # Pods for ImgurRocks
 
 end

@@ -12,6 +12,6 @@ class PostImageView: NSImageView {
 
     override func draw(_ dirtyRect: NSRect) {
         super.draw(dirtyRect)
-        self.imageScaling = .scaleProportionallyUpOrDown
+        self.imageScaling = .scaleAxesIndependently
     }
 }

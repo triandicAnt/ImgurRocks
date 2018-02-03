@@ -12,7 +12,7 @@ class FancyImageView: NSImageView {
 
     override func draw(_ dirtyRect: NSRect) {
         super.draw(dirtyRect)
-        self.imageScaling = .scaleProportionallyUpOrDown
+        self.imageScaling = .scaleAxesIndependently
         // Drawing code here.
     }
     var index : Int?
@@ -32,6 +32,7 @@ class FancyImageView: NSImageView {
         sourceViewController.tagsLabel.stringValue = textField.stringValue
         tagName = tagName?.replacingOccurrences(of: " ", with: "_")
         sourceViewController.galleryPosts.removeAll()
+        sourceViewController.tagViewController = destinationViewController
         sourceViewController.authenticateAPI(tagName:tagName!)
         destinationViewController.dismissViewController(destinationViewController)
     }

@@ -705,7 +705,7 @@
                                             </connections>
                                         </collectionView>
                                     </subviews>
-                                    <color key="backgroundColor" red="0.25490196079999999" green="0.2901960784" blue="0.29803921570000003" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                    <color key="backgroundColor" red="0.18823529411764706" green="0.62352941176470589" blue="0.59607843137254901" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 </clipView>
                                 <scroller key="horizontalScroller" hidden="YES" verticalHuggingPriority="750" horizontal="YES" id="H59-Tq-jpP">
                                     <rect key="frame" x="1" y="343" width="1023" height="16"/>
@@ -810,8 +810,9 @@
                                     </button>
                                 </subviews>
                             </customView>
-                            <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="5fF-Yw-X7y">
+                            <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="5fF-Yw-X7y">
                                 <rect key="frame" x="491" y="366" width="43" height="25"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <buttonCell key="cell" type="roundTextured" title="Tags" bezelStyle="texturedRounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="xoH-u2-6OV">
                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                     <font key="font" metaFont="system"/>
@@ -849,10 +850,8 @@
                             </textField>
                         </subviews>
                         <constraints>
-                            <constraint firstItem="Mf5-jk-zVn" firstAttribute="top" secondItem="5fF-Yw-X7y" secondAttribute="bottom" constant="8" id="Fkl-O5-6dD"/>
                             <constraint firstItem="Mf5-jk-zVn" firstAttribute="top" secondItem="mkW-64-ejl" secondAttribute="top" constant="41" id="gGs-1k-ECl"/>
                             <constraint firstAttribute="trailing" secondItem="Mf5-jk-zVn" secondAttribute="trailing" id="hQu-PD-Uax"/>
-                            <constraint firstItem="5fF-Yw-X7y" firstAttribute="centerX" secondItem="Mf5-jk-zVn" secondAttribute="centerX" id="kzQ-m4-qtA"/>
                             <constraint firstItem="Mf5-jk-zVn" firstAttribute="leading" secondItem="mkW-64-ejl" secondAttribute="leading" id="qzH-qk-HA7"/>
                             <constraint firstAttribute="bottom" secondItem="Mf5-jk-zVn" secondAttribute="bottom" id="tbf-ne-Qcx"/>
                         </constraints>
@@ -897,7 +896,7 @@
                                             </connections>
                                         </collectionView>
                                     </subviews>
-                                    <color key="backgroundColor" red="0.25490196079999999" green="0.2901960784" blue="0.29803921570000003" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                    <color key="backgroundColor" red="0.18823529411764706" green="0.62352941176470589" blue="0.59607843137254901" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 </clipView>
                                 <scroller key="horizontalScroller" hidden="YES" verticalHuggingPriority="750" horizontal="YES" id="wne-C3-dq6">
                                     <rect key="frame" x="1" y="-15" width="0.0" height="16"/>
@@ -956,27 +955,27 @@
             <objects>
                 <viewController storyboardIdentifier="post" id="F1P-12-GpG" customClass="PostViewController" customModule="ImgurRocks" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" id="JWB-Cx-foE">
-                        <rect key="frame" x="0.0" y="0.0" width="810" height="847"/>
+                        <rect key="frame" x="0.0" y="0.0" width="550" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="OfM-0s-7fz">
-                                <rect key="frame" x="18" y="810" width="412" height="17"/>
+                                <rect key="frame" x="18" y="563" width="440" height="17"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Lorem ipsum dollar sits amet" id="N4F-eK-2pv">
-                                    <font key="font" metaFont="system"/>
-                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="center" title="Lorem ipsum dollar sits amet" id="N4F-eK-2pv">
+                                    <font key="font" metaFont="systemBold" size="15"/>
+                                    <color key="textColor" name="highlightColor" catalog="System" colorSpace="catalog"/>
                                     <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                 </textFieldCell>
                             </textField>
                             <scrollView fixedFrame="YES" autohidesScrollers="YES" horizontalLineScroll="10" horizontalPageScroll="10" verticalLineScroll="10" verticalPageScroll="10" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LdO-D5-8x8">
-                                <rect key="frame" x="0.0" y="0.0" width="810" height="794"/>
+                                <rect key="frame" x="0.0" y="0.0" width="550" height="547"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <clipView key="contentView" ambiguous="YES" id="ZAh-xC-Sgs">
-                                    <rect key="frame" x="1" y="1" width="808" height="792"/>
+                                    <rect key="frame" x="1" y="1" width="548" height="545"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
                                         <collectionView ambiguous="YES" selectable="YES" id="a3C-xY-0K5">
-                                            <rect key="frame" x="0.0" y="0.0" width="808" height="792"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="548" height="545"/>
                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                             <color key="primaryBackgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
                                             <connections>
@@ -985,21 +984,21 @@
                                             </connections>
                                         </collectionView>
                                     </subviews>
-                                    <color key="backgroundColor" red="0.25490196079999999" green="0.2901960784" blue="0.29803921570000003" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                    <color key="backgroundColor" red="0.18823529411764706" green="0.62352941176470589" blue="0.59607843137254901" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 </clipView>
                                 <scroller key="horizontalScroller" hidden="YES" verticalHuggingPriority="750" horizontal="YES" id="nIc-l7-fib">
-                                    <rect key="frame" x="1" y="726" width="792" height="16"/>
+                                    <rect key="frame" x="1" y="585" width="548" height="16"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </scroller>
                                 <scroller key="verticalScroller" hidden="YES" verticalHuggingPriority="750" doubleValue="1" horizontal="NO" id="yqg-TI-G1B">
-                                    <rect key="frame" x="777" y="1" width="16" height="741"/>
+                                    <rect key="frame" x="533" y="1" width="16" height="545"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </scroller>
                             </scrollView>
                             <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="gZA-L1-YdO">
-                                <rect key="frame" x="718" y="799" width="75" height="32"/>
+                                <rect key="frame" x="491" y="555" width="39" height="29"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMinY="YES"/>
-                                <buttonCell key="cell" type="push" title="Close" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="IMb-gV-fag">
+                                <buttonCell key="cell" type="square" bezelStyle="shadowlessSquare" image="error" imagePosition="only" alignment="center" imageScaling="proportionallyDown" inset="2" id="IMb-gV-fag">
                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                     <font key="font" metaFont="system"/>
                                 </buttonCell>
@@ -1016,7 +1015,10 @@
                 </viewController>
                 <customObject id="aT5-w2-e1W" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1182" y="613.5"/>
+            <point key="canvasLocation" x="1245" y="690"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="error" width="40.069564819335938" height="40.069564819335938"/>
+    </resources>
 </document>

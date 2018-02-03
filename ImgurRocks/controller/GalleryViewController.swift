@@ -8,6 +8,8 @@
 
 import Cocoa
 import Kingfisher
+//import ProgressKit
+
 class GalleryViewController: NSViewController {
 
     @IBOutlet weak var collectionView: NSCollectionView!
@@ -17,21 +19,20 @@ class GalleryViewController: NSViewController {
     @IBOutlet weak var sectionBox: NSBox!
     @IBOutlet weak var sortBox: NSBox!
     @IBOutlet weak var tagsLabel: NSTextField!
-
     var sortString:String!
     var sectionString:String!
-
+    var blurView: NSVisualEffectView?
     let apiManager = APIManager()
     var galleryPosts : [GalleryPost] = [GalleryPost]()
     var pageNumber: Int = 1
+    var tagViewController : ViewController?
     override func viewDidLoad() {
         super.viewDidLoad()
         self.collectionView.delegate = self
         self.collectionView.dataSource = self
         self.view.wantsLayer = true
-        self.view.layer?.backgroundColor = NSColor(hex: "309f98").cgColor
-        self.view.wantsLayer = true
-        self.tagsButton.layer?.backgroundColor = NSColor(hex: "FFFFFF").cgColor
+        self.view.layer?.backgroundColor = NSColor(hex: "414a4c").cgColor
+//        self.tagsButton.layer?.backgroundColor = NSColor(hex: "FFFFFF").cgColor
         self.sortString = "viral"
         self.sectionString = "hot"
         sectionBox.alphaValue = 1
@@ -53,29 +54,70 @@ class GalleryViewController: NSViewController {
             let button:NSButton = view as! NSButton
             button.attributedTitle = NSMutableAttributedString(string: button.title, attributes: [NSAttributedStringKey.foregroundColor: NSColor.white, NSAttributedStringKey.paragraphStyle: style, NSAttributedStringKey.font: NSFont.systemFont(ofSize: 11)])
         }
+        let scrollView = collectionView.superview?.superview as? NSScrollView
+        scrollView?.autohidesScrollers = true
+        scrollView?.scrollerStyle = .overlay
         configureCollectionView()
+//        for view in self.view.subviews {
+//            (view as? IndeterminateAnimation)?.animate = true
+//        }
         authenticateAPI()
+//        self.blur(view: self.view)
     }
     fileprivate func configureCollectionView() {
         let flowLayout = NSCollectionViewFlowLayout()
         flowLayout.itemSize = NSSize(width: 300.0, height: 300.0)
-        flowLayout.sectionInset = NSEdgeInsets(top: 10.0, left: 10.0, bottom: 10.0, right: 10.0)
-        flowLayout.minimumInteritemSpacing = 10.0
-        flowLayout.minimumLineSpacing = 10.0
+        flowLayout.sectionInset = NSEdgeInsets(top: 3.0, left: 3.0, bottom: 3.0, right: 3.0)
+        flowLayout.minimumInteritemSpacing = 3.0
+        flowLayout.minimumLineSpacing = 3.0
         flowLayout.sectionHeadersPinToVisibleBounds = true
         collectionView.collectionViewLayout = flowLayout
         view.wantsLayer = true
-        //        collectionView.layer?.backgroundColor = NSColor.black.cgColor
-        collectionView.layer?.backgroundColor = NSColor(hex: "414a4c").cgColor
+        //        collectionView.layer?.backgroundColor = NSColor.black.cgColor # 414a4c
+        collectionView.layer?.backgroundColor = NSColor(hex: "309f98").cgColor
     }
     
     @IBAction func loadTags(sender: NSButton) {
         let animator = MyCustomSwiftAnimator()
         let mainStoryboard: NSStoryboard = NSStoryboard(name: NSStoryboard.Name(rawValue: "Main"), bundle: nil)
-        let destinationViewController = mainStoryboard.instantiateController(withIdentifier: NSStoryboard.SceneIdentifier(rawValue: "tags")) as! NSViewController
+        let destinationViewController = mainStoryboard.instantiateController(withIdentifier: NSStoryboard.SceneIdentifier(rawValue: "tags")) as! ViewController
+        destinationViewController.galleryViewController = self
         self.presentViewController(destinationViewController, animator: animator)
     }
+    func applyBlurToWindow() {
+        // define the visual effect view
+        self.blurView = NSVisualEffectView(frame: NSRect(x: 0, y: 0, width: (NSApplication.shared.windows.first?.frame.width)!, height: (NSApplication.shared.windows.first?.frame.height)!))
+        // this is default value but is here for clarity
+        blurView?.blendingMode = NSVisualEffectView.BlendingMode.behindWindow
+        // set the background to always be the dark blur
+        blurView?.material = NSVisualEffectView.Material.mediumLight
+        blurView?.wantsLayer = true
+        blurView?.layer?.backgroundColor = NSColor.clear.cgColor
+        blurView?.layer?.masksToBounds = true
+        blurView?.layerUsesCoreImageFilters = true
+        blurView?.layer?.needsDisplayOnBoundsChange = true
+        let satFilter = CIFilter(name: "CIColorControls")
+        satFilter?.setDefaults()
+        satFilter?.setValue(NSNumber(value: 0.0), forKey: "inputSaturation")
+        let blurFilter = CIFilter(name: "CIGaussianBlur")
+        blurFilter?.setDefaults()
+        blurFilter?.setValue(NSNumber(value: 2.0), forKey: "inputRadius")
+        blurView?.layer?.backgroundFilters = [satFilter!, blurFilter!]
+
+        // set it to always be blurry regardless of window state
+        if let window = NSApplication.shared.windows.first {
+            window.acceptsMouseMovedEvents = true
+            blurView?.state = .active
+            window.contentView?.addSubview(blurView!)
+        }
+    }
     
+    func removeBlurredView(){
+        blurView?.state = .inactive
+        blurView?.layer?.backgroundFilters = nil
+        self.blurView?.removeFromSuperview()
+    }
+
     @IBAction func sortBy(sender: NSButton) {
         sortString = sender.title.lowercased()
     }
@@ -87,6 +129,9 @@ class GalleryViewController: NSViewController {
         apiManager.fetchGalleryAPIImages(tagName: tagUrl, mature: self.matureButton.state.rawValue, viral: self.viralButton.state.rawValue) { responseObject, error in
             self.processData(data: responseObject!) {posts,error in
                 self.collectionView.reloadData()
+//                for view in self.view.subviews {
+//                    (view as? IndeterminateAnimation)?.animate = false
+//                }
             }
         }
     }
@@ -95,6 +140,7 @@ class GalleryViewController: NSViewController {
         do {
             if let jsonVal = try JSONSerialization.jsonObject(with: data, options:.allowFragments) as? [String:Any] {
                 let jsonValueData:[String : Any] = (jsonVal["data"] as? [String : Any])!
+                print(String(jsonValueData.count) + "-------------------")
                 let items:[Any] = (jsonValueData["items"] as? [Any])!
                 for item in items {
                     let post:[String:Any] = item as! [String : Any]
@@ -151,7 +197,29 @@ class GalleryViewController: NSViewController {
         guard let url = URL(string: link) else { return }
         downloadedFrom(url: url, completionHandler: completionHandler)
     }
-
+    override func keyUp(with event: NSEvent) {
+        print(event.keyCode)
+        if (event.keyCode == escKey) {
+            if (self.tagViewController != nil) {
+                self.dismissViewController(self.tagViewController!)
+            }
+        }
+    }
+    override func keyDown(with event: NSEvent) {
+        print(event.keyCode)
+        if (event.keyCode == escKey) {
+            self.dismissViewController(self)
+        }
+    }
+    override var acceptsFirstResponder: Bool {
+        return true
+    }
+    override func becomeFirstResponder() -> Bool {
+        return true
+    }
+    override func resignFirstResponder() -> Bool {
+        return true
+    }
 }
 
 extension GalleryViewController : NSCollectionViewDataSource {

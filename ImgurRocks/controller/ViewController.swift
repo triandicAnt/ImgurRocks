@@ -15,7 +15,7 @@ class ViewController: NSViewController {
     var tagsImageArray:[URL] = [URL] ()
     var galleryImageURL:[URL] = [URL] ()
     let apiManager = APIManager()
-
+    var galleryViewController: GalleryViewController?
     
     override func viewDidLoad() {
         print("old view controller being called")
@@ -88,6 +88,28 @@ class ViewController: NSViewController {
         view.wantsLayer = true
         collectionView.layer?.backgroundColor = NSColor(hex: "414a4c").cgColor
     }
+    override func keyUp(with event: NSEvent) {
+        print(event.keyCode)
+        if (event.keyCode == escKey) {
+            galleryViewController?.dismissViewController(self)
+        }
+    }
+    override func keyDown(with event: NSEvent) {
+        print(event.keyCode)
+        if (event.keyCode == escKey) {
+            galleryViewController?.dismissViewController(self)
+        }
+    }
+    override var acceptsFirstResponder: Bool {
+        return true
+    }
+    override func becomeFirstResponder() -> Bool {
+        return true
+    }
+    override func resignFirstResponder() -> Bool {
+        return true
+    }
+
 }
 extension ViewController : NSCollectionViewDataSource {
     

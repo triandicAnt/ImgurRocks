@@ -1,15 +1,18 @@
 PODS:
   - Alamofire (4.6.0)
   - Kingfisher (4.6.1)
+  - ProgressKit (0.6.1)
 
 DEPENDENCIES:
   - Alamofire (~> 4.5)
   - Kingfisher (~> 4.0)
+  - ProgressKit
 
 SPEC CHECKSUMS:
   Alamofire: f41a599bd63041760b26d393ec1069d9d7b917f4
   Kingfisher: 1f9157d9c02b380cbd0b7cc890161195164eb634
+  ProgressKit: c6c640344bb7512db1c9c7e33dee63c8f663b98f
 
-PODFILE CHECKSUM: 896f0a37841a4c07ccfa5e7e17e55c592aa50b77
+PODFILE CHECKSUM: baebe81313f515c467a8aeb9157497a5443afbef
 
 COCOAPODS: 1.4.0
